@@ -10,5 +10,11 @@ import 'bootstrap/dist/js/bootstrap.min.js';
 
 
 $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-  })
+    $('[data-toggle="tooltip"]').tooltip();
+
+    $( '.add-to-cart-btn').click(function() {
+      alert('أضيف المنتج إلى عربة الشراء');
+    });
+
+  });
+
