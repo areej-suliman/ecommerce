@@ -23,5 +23,33 @@ $(function () {
         $(this).parents('.product-option').addClass('active');
     });
 
+    $('[data-product-quantity').change(function() {
+      var newQuantity= $(this).val();
+      var parent= $(this).parents('[data-product-info]');
+      var pricePerUnit= parent.attr('data-product-price');
+      var totalPriceForProduct= newQuantity * pricePerUnit;
+      parent.find('.total-price-for-product').text(totalPriceForProduct + '$');
+      calculateTotalPrice();
+    });
+
+    $('[data-remove-from-cart]').click(function() {
+      $(this).parents('[data-product-info]').remove();
+      calculateTotalPrice();
+    })
+
+    function calculateTotalPrice() {
+      var totalPriceForAllProducts = 0;
+      $('[data-product-info]').each(function() {
+        var pricePerUnit= $(this).attr('data-product-price');
+        var quantity = $(this).find('[data-product-quantity]').val();
+        var totalPriceForProduct = pricePerUnit * quantity;
+        totalPriceForAllProducts = totalPriceForAllProducts + totalPriceForProduct;
+      });
+
+      $('#total-price-for-all-products').text(totalPriceForAllProducts + '$');
+
+
+    }
+
   });
 
