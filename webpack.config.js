@@ -107,6 +107,17 @@ module.exports = {
     template: "./src/payment.html",
 }),
 
+  new HtmlWebpackPlugin({
+    filename: "search.html",
+    template: "./src/search.html",
+  }),
+
+
+  new HtmlWebpackPlugin({
+    filename: "contact.html",
+    template: "./src/contact.html",
+  }),
+
       new MiniCssExtractPlugin({
           filename: "css/style.css",
       }),
